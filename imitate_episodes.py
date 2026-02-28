@@ -47,7 +47,8 @@ def main(args):
     camera_names = task_config['camera_names']
 
     # fixed parameters
-    state_dim = 14
+    state_dim = 32
+    action_dim = 7
     lr_backbone = 1e-5
     backbone = 'resnet18'
     if policy_class == 'ACT':
@@ -63,6 +64,8 @@ def main(args):
                          'backbone': backbone,
                          'enc_layers': enc_layers,
                          'dec_layers': dec_layers,
+                         'state_dim': state_dim,
+                         'action_dim': action_dim,
                          'nheads': nheads,
                          'camera_names': camera_names,
                          }
@@ -77,6 +80,7 @@ def main(args):
         'ckpt_dir': ckpt_dir,
         'episode_len': episode_len,
         'state_dim': state_dim,
+        'action_dim':action_dim,
         'lr': args['lr'],
         'policy_class': policy_class,
         'onscreen_render': onscreen_render,
@@ -152,6 +156,7 @@ def eval_bc(config, ckpt_name, save_episode=True):
     set_seed(1000)
     ckpt_dir = config['ckpt_dir']
     state_dim = config['state_dim']
+    action_dim = config['action_dim']
     real_robot = config['real_robot']
     policy_class = config['policy_class']
     onscreen_render = config['onscreen_render']
@@ -216,7 +221,7 @@ def eval_bc(config, ckpt_name, save_episode=True):
 
         ### evaluation loop
         if temporal_agg:
-            all_time_actions = torch.zeros([max_timesteps, max_timesteps+num_queries, state_dim]).cuda()
+            all_time_actions = torch.zeros([max_timesteps, max_timesteps+num_queries, action_dim]).cuda()
 
         qpos_history = torch.zeros((1, max_timesteps, state_dim)).cuda()
         image_list = [] # for visualization

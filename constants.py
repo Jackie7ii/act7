@@ -7,30 +7,36 @@ SIM_TASK_CONFIGS = {
         'dataset_dir': DATA_DIR + '/sim_transfer_cube_scripted',
         'num_episodes': 50,
         'episode_len': 400,
-        'camera_names': ['top']
+        'camera_names': ['base_rgb', 'wrist_rgb']
     },
 
     'sim_transfer_cube_human':{
         'dataset_dir': DATA_DIR + '/sim_transfer_cube_human',
         'num_episodes': 50,
         'episode_len': 400,
-        'camera_names': ['top']
+        'camera_names': ['base_rgb', 'wrist_rgb']
     },
 
     'sim_insertion_scripted': {
         'dataset_dir': DATA_DIR + '/sim_insertion_scripted',
         'num_episodes': 50,
         'episode_len': 400,
-        'camera_names': ['top']
+        'camera_names': ['base_rgb', 'wrist_rgb']
     },
 
     'sim_insertion_human': {
         'dataset_dir': DATA_DIR + '/sim_insertion_human',
         'num_episodes': 50,
         'episode_len': 500,
-        'camera_names': ['top']
+        'camera_names': ['base_rgb', 'wrist_rgb']
     },
-}
+
+    'sim_tomato_soup_can': {
+        'dataset_dir': '/home/jl17265/act7/labdata/ur_data_hdf5_test10',
+        'num_episodes': 10,
+        'episode_len': 81,
+        'camera_names': ['base_rgb', ]
+    },  }
 
 ### Simulation envs fixed constants
 DT = 0.02

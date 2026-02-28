@@ -47,6 +47,8 @@ def get_args_parser():
     parser.add_argument('--num_queries', default=400, type=int, # will be overridden
                         help="Number of query slots")
     parser.add_argument('--pre_norm', action='store_true')
+    parser.add_argument('--state_dim', default=14, type=int, help="Dimension of the state vector input to the model")
+    parser.add_argument('--action_dim', default=14, type=int, help="Dimension of the action vector output by the model")
 
     # * Segmentation
     parser.add_argument('--masks', action='store_true',
