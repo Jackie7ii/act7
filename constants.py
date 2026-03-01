@@ -32,10 +32,10 @@ SIM_TASK_CONFIGS = {
     },
 
     'sim_tomato_soup_can': {
-        'dataset_dir': '/home/jl17265/act7/labdata/ur_data_hdf5_test10',
+        'dataset_dir': '/home/lou7/act7/ur_data_hdf5',
         'num_episodes': 10,
         'episode_len': 81,
-        'camera_names': ['base_rgb', ]
+        'camera_names': ['base_rgb', 'wrist_rgb']
     },  }
 
 ### Simulation envs fixed constants

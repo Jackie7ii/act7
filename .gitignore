@@ -137,8 +137,12 @@ celerybeat.pid
 dmypy.json
 
 # Pyre type checker
-.pyre/# Local datasets / checkpoints
+.pyre/
+
+# Local datasets / checkpoints
 labdata/
+ur_data_hdf5/
+ckpt/
 ckpts/
 
 # Binary data
